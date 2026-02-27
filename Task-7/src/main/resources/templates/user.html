@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+
+<h1>Ваша информация</h1>
+
+<table border="1">
+    <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Age</th>
+        <th>Roles</th>
+    </tr>
+
+    <tr>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+        <td>
+            <span th:each="role : ${user.roles}"
+                    th:text="${role.name + ', '}">
+            </span>
+        </td>
+    </tr>
+
+    <a href="http://localhost:8080/admin"> Перейти на страницу для Admin </a>
+</table>
+
+<label>Выйти</label>
+<form th:action="@{/logout}" method="post" style="display: block">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <button type="submit"></button>
+</form>
+</body>
+</html>
