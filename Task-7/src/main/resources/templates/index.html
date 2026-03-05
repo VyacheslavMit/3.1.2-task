@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<th:block th:each="msg : ${messages}">
+    <h1 th:text="${msg}"></h1>
+</th:block>
+
+<a href="http://localhost:8080/user"> Перейти на /user </a>
+</body>
+</html>
